@@ -36,7 +36,23 @@ export function Footer() {
 
         <div className="footer-contact">
           <h2>Kontak</h2>
-          <p><MapPin size={17} /><ConfigValue value={business.address} fallback="Alamat belum dikonfigurasi" /></p>
+          {business.mapsUrl ? (
+            <a
+              href={business.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-address-link"
+              title="Buka lokasi di Google Maps"
+            >
+              <MapPin size={17} />
+              <span>
+                <ConfigValue value={business.address} fallback="Alamat belum dikonfigurasi" />
+                <span className="footer-maps-badge">Buka di Maps ↗</span>
+              </span>
+            </a>
+          ) : (
+            <p><MapPin size={17} /><ConfigValue value={business.address} fallback="Alamat belum dikonfigurasi" /></p>
+          )}
           <p><Phone size={17} /><ConfigValue value={business.phone} fallback="Telepon belum dikonfigurasi" /></p>
           <a href={whatsappUrl()}><MessageCircle size={17} /><ConfigValue value={business.whatsapp} fallback="WhatsApp belum dikonfigurasi" /></a>
           <p><Mail size={17} /><ConfigValue value={business.email} fallback="Email belum dikonfigurasi" /></p>

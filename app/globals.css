@@ -1072,6 +1072,31 @@ button {
   margin-top: 1px;
 }
 
+.footer-address-link {
+  transition: color 180ms ease;
+}
+
+.footer-maps-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 7px;
+  background: rgba(229, 9, 20, 0.22);
+  color: #ff6b6b;
+  border: 1px solid rgba(229, 9, 20, 0.35);
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+  vertical-align: middle;
+  transition: all 180ms ease;
+}
+
+.footer-address-link:hover .footer-maps-badge {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   padding: 17px 0 20px;
