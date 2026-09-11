@@ -4,7 +4,7 @@ import { BookingStep } from "@/components/BookingStep";
 import { CTA } from "@/components/CTA";
 import { FAQItem } from "@/components/FAQ";
 import { FeatureCard } from "@/components/FeatureCard";
-import { FleetCard } from "@/components/FleetCard";
+import { FleetCatalog } from "@/components/FleetCatalog";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { MobileWhatsapp } from "@/components/MobileWhatsapp";
@@ -57,7 +57,7 @@ export default function Home() {
         <Hero />
         <QuickBookingPanel />
         <TrustStrip />
-        <FleetSection />
+        <FleetCatalog fleet={fleet} categories={categories} />
         <ServicesSection />
         <FeaturedVehicle />
         <CoverageSection />
@@ -110,25 +110,6 @@ function TrustStrip() {
   );
 }
 
-function FleetSection() {
-  return (
-    <section id="armada" className="fleet-section fleet-catalog-section">
-      <div className="container-page fleet-catalog-container">
-        <Reveal className="fleet-catalog-heading">
-          <div><p className="section-kicker">Armada rental mobil</p><h2>Pilih Kendaraan<br />Sesuai Perjalanan Anda</h2></div>
-          <p>Pilihan unit untuk perjalanan keluarga, bisnis, airport, wisata, dan rombongan.</p>
-          <a href="#kontak">Lihat semua armada <ArrowRight size={17} /></a>
-        </Reveal>
-        <div className="fleet-tabs" aria-label="Kategori kendaraan">
-          {categories.map((category, index) => <button type="button" className={index === 0 ? "active" : ""} key={category}>{category}</button>)}
-        </div>
-        <div className="fleet-track no-scrollbar">
-          {fleet.map((vehicle, index) => <Reveal key={vehicle.name} delay={(index % 4) * 0.035}><FleetCard {...vehicle} /></Reveal>)}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function FeaturedVehicle() {
   return (

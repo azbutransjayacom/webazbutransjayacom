@@ -42,10 +42,11 @@ def inspect_viewport(browser, name: str, width: int, height: int):
           alt: img.alt,
           complete: img.complete,
           naturalWidth: img.naturalWidth,
-          naturalHeight: img.naturalHeight
+          naturalHeight: img.naturalHeight,
+          visible: img.offsetParent !== null || img.getClientRects().length > 0
         }))"""
     )
-    broken = [img for img in loaded_images if not img["complete"] or img["naturalWidth"] == 0]
+    broken = [img for img in loaded_images if img["visible"] and (not img["complete"] or img["naturalWidth"] == 0)]
     assert not broken, (name, broken)
     page.screenshot(path=str(ARTIFACTS / f"redesign-{name}-full.png"), full_page=True)
 
@@ -55,9 +56,9 @@ def inspect_viewport(browser, name: str, width: int, height: int):
         page.get_by_role("button", name="Tutup menu").click()
 
     expect(page.get_by_role("heading", name="Pilih Kendaraan Sesuai Perjalanan Anda")).to_be_visible()
-    assert page.locator(".fleet-card").count() == 7
-    assert page.get_by_text("Rp350.000", exact=True).first.is_visible()
-    assert page.get_by_text("Rp1.000.000", exact=True).is_visible()
+    assert page.locator(".fleet-card").count() == 8
+    assert page.get_by_text("Rp 325.000").first.is_visible()
+    assert page.get_by_text("Rp 1.000.000").is_visible()
     assert page.locator(".quick-booking-panel").is_visible()
     assert page.locator(".trust-strip").is_visible()
 

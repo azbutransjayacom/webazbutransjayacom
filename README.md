@@ -8,7 +8,7 @@ Homepage menggunakan alur landing page rental modern: hero armada, panel booking
 
 - Hero responsif dengan fokus pada armada dan CTA utama
 - Panel booking responsif yang membentuk pesan WhatsApp sesuai kebutuhan perjalanan
-- Katalog tujuh kendaraan dengan grid empat kolom di desktop dan kartu khusus mobile
+- Katalog delapan armada kendaraan dengan filter kategori interaktif (Semua, City Car, MPV, Premium, Minibus) dan kartu responsif
 - Trust strip dan benefit cards yang ringkas serta mudah dipindai
 - Featured Innova Reborn dengan presentasi sinematik
 - Alur booking empat langkah yang konsisten di desktop, tablet, dan mobile

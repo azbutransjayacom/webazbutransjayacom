@@ -27,7 +27,7 @@ export function Footer() {
 
         {Object.entries(footerLinks).map(([heading, links]) => (
           <div key={heading} className="footer-links">
-            <h2>{heading}</h2>
+            <h3 className="footer-heading">{heading}</h3>
             {links.map(([label, href]) => (
               <a key={label} href={href}>{label}</a>
             ))}
@@ -35,7 +35,7 @@ export function Footer() {
         ))}
 
         <div className="footer-contact">
-          <h2>Kontak</h2>
+          <h3 className="footer-heading">Kontak</h3>
           {business.mapsUrl ? (
             <a
               href={business.mapsUrl}

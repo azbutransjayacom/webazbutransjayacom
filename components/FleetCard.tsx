@@ -19,7 +19,7 @@ export function FleetCard({ name, image, transmission, seats, price }: FleetVehi
       </div>
 
       <div className="fleet-card-body">
-        <strong className="fleet-card-title">{name}</strong>
+        <h3 className="fleet-card-title">{name}</h3>
 
         <div className="fleet-card-specs">
           <div className="fleet-spec-badge">

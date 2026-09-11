@@ -23,7 +23,7 @@ export const business = {
   phone: "085655221633",
   email: "",
   address: "Jl. Raya Jaretan, Perum Sun Garden Blok A5/02, Urangagung, Sumberejo, Sidoarjo, Jawa Timur",
-  mapsUrl: "https://maps.google.com/?q=Perumahan+The+Sun+Garden+Urangagung+Sumberejo+Sidoarjo",
+  mapsUrl: "https://maps.app.goo.gl/o8b3UyufouA529XU7",
   instagram: "",
   baseUrl: "https://azbutransjaya.com",
 };

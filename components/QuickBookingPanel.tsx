@@ -28,7 +28,7 @@ export function QuickBookingPanel() {
 
   const panelRef = useRef<HTMLDivElement>(null);
 
-  // Close dropdowns when clicking outside
+  // Close dropdowns when clicking outside or pressing Escape
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (panelRef.current && !panelRef.current.contains(event.target as Node)) {
@@ -37,8 +37,19 @@ export function QuickBookingPanel() {
         setShowAreaDropdown(false);
       }
     }
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setShowVehicleDropdown(false);
+        setShowDriverDropdown(false);
+        setShowAreaDropdown(false);
+      }
+    }
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   }, []);
 
   const activeDriverObj = driverOptions.find((d) => d.id === selectedDriver) || driverOptions[0];
@@ -79,6 +90,8 @@ export function QuickBookingPanel() {
                 }}
                 aria-label="Pilih unit armada"
                 aria-expanded={showVehicleDropdown}
+                role="combobox"
+                aria-haspopup="listbox"
               >
                 <CarFront size={18} />
                 <span className="booking-select-text">
@@ -89,11 +102,13 @@ export function QuickBookingPanel() {
               </button>
 
               {showVehicleDropdown && (
-                <div className="booking-dropdown-menu">
+                <div className="booking-dropdown-menu" role="listbox" aria-label="Daftar kendaraan">
                   {fleet.map((car) => (
                     <button
                       key={car.name}
                       type="button"
+                      role="option"
+                      aria-selected={selectedVehicle === car.name}
                       className={`booking-dropdown-item ${selectedVehicle === car.name ? "active" : ""}`}
                       onClick={() => {
                         setSelectedVehicle(car.name);
@@ -121,6 +136,8 @@ export function QuickBookingPanel() {
                 }}
                 aria-label="Pilih layanan driver"
                 aria-expanded={showDriverDropdown}
+                role="combobox"
+                aria-haspopup="listbox"
               >
                 <UserCheck size={18} />
                 <span className="booking-select-text">
@@ -131,11 +148,13 @@ export function QuickBookingPanel() {
               </button>
 
               {showDriverDropdown && (
-                <div className="booking-dropdown-menu">
+                <div className="booking-dropdown-menu" role="listbox" aria-label="Pilihan layanan driver">
                   {driverOptions.map((opt) => (
                     <button
                       key={opt.id}
                       type="button"
+                      role="option"
+                      aria-selected={selectedDriver === opt.id}
                       className={`booking-dropdown-item ${selectedDriver === opt.id ? "active" : ""}`}
                       onClick={() => {
                         setSelectedDriver(opt.id);
@@ -162,6 +181,8 @@ export function QuickBookingPanel() {
                 }}
                 aria-label="Pilih area perjalanan"
                 aria-expanded={showAreaDropdown}
+                role="combobox"
+                aria-haspopup="listbox"
               >
                 <MapPin size={18} />
                 <span className="booking-select-text">
@@ -172,11 +193,13 @@ export function QuickBookingPanel() {
               </button>
 
               {showAreaDropdown && (
-                <div className="booking-dropdown-menu">
+                <div className="booking-dropdown-menu" role="listbox" aria-label="Pilihan area tujuan">
                   {areaOptions.map((opt) => (
                     <button
                       key={opt.id}
                       type="button"
+                      role="option"
+                      aria-selected={selectedArea === opt.id}
                       className={`booking-dropdown-item ${selectedArea === opt.id ? "active" : ""}`}
                       onClick={() => {
                         setSelectedArea(opt.id);

@@ -20,7 +20,6 @@ export function Hero() {
             src="/images/hero-bg-surabaya-mobile.png"
             alt="Surabaya Landmark Background"
             fill
-            priority
             sizes="100vw"
             className="mobile-hero-bg-img"
           />
@@ -33,13 +32,13 @@ export function Hero() {
             Rental Mobil Surabaya & Sidoarjo
           </p>
 
-          <h1 className="mobile-hero-title">
+          <div className="mobile-hero-title" role="heading" aria-level={1}>
             Rental Mobil<br />
             <span>
               Surabaya &amp;<br />
               Sidoarjo
             </span>
-          </h1>
+          </div>
 
           <p className="mobile-hero-desc">
             Armada terawat untuk perjalanan harian, airport, wisata, dan kebutuhan keluarga.

@@ -547,6 +547,18 @@
   color: var(--primary);
 }
 
+.fleet-tab-badge {
+  margin-left: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+.fleet-tabs button.active .fleet-tab-badge {
+  opacity: 1;
+  font-weight: 700;
+}
+
 .fleet-catalog-section .fleet-track {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -640,6 +652,7 @@
 
 .fleet-card-title {
   display: block;
+  margin: 0;
   color: var(--foreground);
   font-size: 18px;
   font-weight: 800;
