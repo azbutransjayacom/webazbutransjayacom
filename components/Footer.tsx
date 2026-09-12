@@ -55,7 +55,11 @@ export function Footer() {
           )}
           <p><Phone size={17} /><ConfigValue value={business.phone} fallback="Telepon belum dikonfigurasi" /></p>
           <a href={whatsappUrl()}><MessageCircle size={17} /><ConfigValue value={business.whatsapp} fallback="WhatsApp belum dikonfigurasi" /></a>
-          <p><Mail size={17} /><ConfigValue value={business.email} fallback="Email belum dikonfigurasi" /></p>
+          {business.email ? (
+            <a href={`mailto:${business.email}`}><Mail size={17} /><span>{business.email}</span></a>
+          ) : (
+            <p><Mail size={17} /><ConfigValue value={business.email} fallback="Email belum dikonfigurasi" /></p>
+          )}
         </div>
       </div>
       <div className="container-page footer-bottom">

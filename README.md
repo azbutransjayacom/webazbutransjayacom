@@ -117,7 +117,7 @@ Pemeriksaan otomatis mencakup viewport desktop `1440×900`, tablet `1024×768`, 
 
 ## Status konten
 
-- Telepon, WhatsApp, email, dan alamat masih menunggu data resmi.
+- Telepon, WhatsApp, email, dan alamat sudah terkonfigurasi resmi.
 - Lokasi pada visual peta perlu diverifikasi sebelum publikasi.
 - Kebijakan rental yang belum tersedia ditulis sebagai arahan untuk berkonsultasi.
 - Aset galeri bersifat representatif dan dapat diganti dengan dokumentasi operasional asli.

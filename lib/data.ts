@@ -21,7 +21,7 @@ export const business = {
   legalName: "PT Azbu Trans Jaya",
   whatsapp: "085655221633",
   phone: "085655221633",
-  email: "",
+  email: "azbutransjaya.com@gmail.com",
   address: "Jl. Raya Jaretan, Perum Sun Garden Blok A5/02, Urangagung, Sumberejo, Sidoarjo, Jawa Timur",
   mapsUrl: "https://maps.app.goo.gl/o8b3UyufouA529XU7",
   instagram: "",

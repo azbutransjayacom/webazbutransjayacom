@@ -37,6 +37,7 @@ export default function Home() {
       legalName: business.legalName,
       url: business.baseUrl,
       telephone: business.phone,
+      email: business.email,
       address: {
         "@type": "PostalAddress",
         streetAddress: "Jl. Raya Jaretan, Perum Sun Garden Blok A5/02, Urangagung, Sumberejo",
